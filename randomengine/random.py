@@ -14,11 +14,6 @@ class RandomUserData():
         """Methods for radom data
 
         Args:
-            fnf: object, model FirstnameFemale.object.all()
-            snf: object, model SurnameFemale.object.all()
-            fnm: object, model FirstnameMale.object.all()
-            snm: object, model SurnameMale.object.all()
-            pc: object, model PatronymicCommon.object.all()
             start_date: %d%m%Y
             stop_date: %d%m%Y
         """
