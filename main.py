@@ -1,4 +1,5 @@
 from config import DevConfig
+from randomengine.random import RandomUserData
 
 from flask import Flask
 
@@ -9,7 +10,8 @@ app.config.from_object(DevConfig)
 
 @app.route('/')
 def index():
-    return 'All Ok'
+    data = RandomUserData().full_random()
+    return f"{data[0]} {data[1]} {data[2]} {data[3]}"
 
 
 if __name__ == "__main__":
