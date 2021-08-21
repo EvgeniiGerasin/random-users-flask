@@ -1,4 +1,5 @@
 from randomengine.parser import Parser
+from randomengine.loginandpassword import DataAuth
 
 import random
 import time
@@ -36,7 +37,9 @@ class RandomUserData():
         else:
             patranymic = patranymic + 'на'
         date_birth = random_date
-        return [surname, firstname, patranymic, date_birth]
+        username = DataAuth().username(surname)
+        password = DataAuth().password(firstname)
+        return [surname, firstname, patranymic, date_birth, username, password]
 
     def formation_date(self, start_date: str, stop_date: str) -> str:
 

@@ -11,8 +11,8 @@ app.config.from_object(DevConfig)
 @app.route('/')
 def index():
     data = RandomUserData().full_random()
-    return f"{data[0]} {data[1]} {data[2]} {data[3]}"
+    return f"{data[0]} {data[1]} {data[2]} {data[3]} | логин: {data[4]} |  пароль: {data[5]}"
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run()
