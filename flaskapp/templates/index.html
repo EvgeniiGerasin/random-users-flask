@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title%}Генератор{% endblock title%}
+
+{% block content %}
+  <div class="container col-xl-10 col-xxl-7 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Users generator</h1>
+        <p class="col-lg-10 fs-4">Генерирует данные пользователя: пол, ФИО, дату рождения, логин, пароль</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-light">
+          <div class="form-floating mb-3">
+            <div class="col p-4">
+              <p>{
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;'gender': '{{user.gender}}',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;'surname': '{{user.surname}}',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;'firstname': '{{user.firstname}}',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;'patranymic': '{{user.patranymic}}',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;'date_birth': '{{user.date_birth}}',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;'username': '{{user.username}}',<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;'password': '{{user.password}}',<br>
+      }
+        </p>
+            </div>
+          </div>
+          <a class="w-100 btn btn-lg btn-primary" type="submit" href="{{ url_for('index')}}">Сгенерировать</a>
+          <hr class="my-4">
+          <div class="position top-50 start-50">
+            <small class="text-muted">Перейти в <a href="{{ url_for('index')}}">настройки генератора</a>
+            </small>
+            <p>
+              <small class="text-muted">
+                <a href="#">Документация API</a>
+              </small>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
