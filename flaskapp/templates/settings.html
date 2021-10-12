@@ -41,7 +41,7 @@
             <h4 class="mb-3">Количество записей (только для CSV)</h4>
             <div class="my-3">
               <div class="col-sm-4">
-                <input type="number" class="form-control" value="1" min="1" max="100000" id="number" name="number"></input>
+                <input type="number" class="form-control" value="{{ data.number }}" min="1" max="100000" id="number" name="number"></input>
               </div>
             </div>
           </div>
@@ -62,8 +62,8 @@
                 </p>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-            <button type="submit" name="type" value="csv" id="button_csv" class="btn btn-success">Create and download CSV</button>
+            <button type="submit" name="csv" value=false class="btn btn-primary">Create</button>
+            <button type="submit" name="csv" value=true id="button_csv" class="btn btn-success">Create and download CSV</button>
             <hr class="my-4">
             <div class="position top-50 start-50">
               <small class="text-muted">
