@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title%}Описание API{% endblock title%}
+
+{% block content %}
+  <div class="container col-xl-10 col-xxl-7 px-4 py-5">
+    <div class="card" style="width: 45rem; margin: auto;">
+      <div class="card-header">
+        <h4>Случайны пользователь</h4>
+      </div>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">/api/random</h6>
+        <p class="card-text">Возвращает полностью рандомного пользователя</p>
+        <hr class="my-4">
+        <p>
+        status: true <br>
+        users: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; date_birth	"12.08.2002" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; firstname	"Ефим" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gender	"male" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; password	"Efim263026_" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; patranymic	"Филиппович" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; surname	"Антипов" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; username	"Antipov26549808" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;] <br>
+        </p>
+      </p>
+    </div>
+  </div>
+  <p></p>
+  <div class="card" style="width: 45rem; margin: auto;">
+    <div class="card-header">
+      <h4>Несколько пользователей</h4>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">/api/random?number=<mark>{number users}</mark>
+      </h6>
+      <p class="card-text">Возвращает указанное количество рандомных пользователей</p>
+      <hr class="my-4">
+      <div class="row align-items-center">
+        <div class="col">
+          number users : int
+        </div>
+        <div class="col">
+          количество необходимых пользователей
+        </div>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="card" style="width: 45rem; margin: auto;">
+    <div class="card-header">
+      <h4>Настрокай пола и даты рождения</h4>
+    </div>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">/api/random?gender=<mark>{gender}</mark>&date_from=<mark>{date_from}</mark>&date_to=<mark>{date_to}</mark>
+      </h6>
+      <p class="card-text">Возвращает указанное количество рандомных пользователей</p>
+      <hr class="my-4">
+      <div class="row align-items-center">
+        <div class="col">
+          gender : str <br>
+          date_from: str <br>
+          date_to: str
+        </div>
+        <div class="col">
+          только male, female, random<br>
+          диапазон даты рождения "от"<br>
+          диапазон даты рождения "до"
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock content%}

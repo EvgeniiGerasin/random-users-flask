@@ -25,14 +25,14 @@
         </p>
             </div>
           </div>
-          <a class="w-100 btn btn-lg btn-primary" type="submit" href="{{ url_for('index')}}">Сгенерировать</a>
+          <a class="w-100 btn btn-lg btn-primary" type="submit" href="{{ url_for('index') }}">Сгенерировать</a>
           <hr class="my-4">
           <div class="position top-50 start-50">
-            <small class="text-muted">Перейти в <a href="{{ url_for('settings')}}">настройки генератора</a>
+            <small class="text-muted">Перейти в <a href="{{ url_for('settings') }}">настройки генератора</a>
             </small>
             <p>
               <small class="text-muted">
-                <a href="#">Документация API</a>
+                <a href="{{ url_for('api_description') }}">Документация API</a>
               </small>
             </p>
           </div>
