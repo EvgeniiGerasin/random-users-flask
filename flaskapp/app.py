@@ -63,6 +63,11 @@ def settings():
     return render_template('settings.html', data=context)
 
 
+@app.route('/api_description')
+def api_description():
+    return render_template('api_description.html')
+
+
 @app.route('/api/random')
 def api_random():
 
