@@ -125,12 +125,12 @@ def api_random():
         }
         return jsonify(resp)
     # check gender
-    if gender == 'male' or gender == 'female':
+    if gender == 'male' or gender == 'female' or gender == 'random':
         r.gender = gender
     else:
         resp = resp = {
             'status': False,
-            'test error': 'Gender users is wrong. Gender should be male or female. For example try /api/random?gender=male or /api/random?gender=female'
+            'test error': 'Gender users is wrong. Gender should be male or female. For example try /api/random?gender=male or /api/random?gender=female or /api/random?gender=random'
         }
         return jsonify(resp)
     # check number users generation
