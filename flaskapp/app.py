@@ -41,6 +41,7 @@ def settings():
                 r.stop_date = date_to
         gender = request.form['gender']
         number = int(request.form['number'])
+        r.number = number
         csv = request.form['csv']
         r.gender = gender
         if csv == 'true':
@@ -52,7 +53,7 @@ def settings():
                 path,
                 as_attachment=True
             )
-        user = r.castom_random_user()
+        user = r.get_user()[0]
         context = {
             'user': user,
             'date_from': date_from,
@@ -62,7 +63,7 @@ def settings():
         }
         return render_template('settings.html', data=context)
     context = {
-        'user': r.full_random_user(),
+        'user': r.get_user()[0],
         'date_from': '1970-01-01',
         'date_to': '2021-01-01',
         'gender': 'random',
@@ -159,11 +160,11 @@ def api_random():
                 'test error': 'Number users is wrong. Should be > 0'
             }
             return jsonify(resp)
+        r.number = amount
         # * main function
-        for _ in range(0, amount):
-            users.append(r.castom_random_user())
-            resp = {
-                'status': True,
-                'users': users,
-            }
+        users.append(r.get_user())
+        resp = {
+            'status': True,
+            'users': users,
+        }
         return jsonify(resp)
