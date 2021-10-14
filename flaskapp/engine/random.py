@@ -33,13 +33,15 @@ class RandomUserData():
         """
         random_date = self._formation_date()
         gender = random.choice(['male', 'female'])
-        surname = random.choice(Parser.get_data(gender=gender)[0])
-        firstname = random.choice(Parser.get_data(gender=gender)[1])
-        patranymic = random.choice(Parser.get_data(gender=gender)[2])
+        patranymic = random.choice(Parser.get_data()[4])
         if gender == 'male':
             patranymic = patranymic + 'ич'
+            surname = random.choice(Parser.get_data()[2])
+            firstname = random.choice(Parser.get_data()[0])
         else:
             patranymic = patranymic + 'на'
+            surname = random.choice(Parser.get_data()[3])
+            firstname = random.choice(Parser.get_data()[1])
         date_birth = random_date
         username = DataAuth().username(surname)
         password = DataAuth().password(firstname)
@@ -64,13 +66,15 @@ class RandomUserData():
         if gender == 'random':
             gender = random.choice(['male', 'female'])
         random_date = self._formation_date(self.start_date, self.stop_date)
-        surname = random.choice(Parser.get_data(gender=gender)[0])
-        firstname = random.choice(Parser.get_data(gender=gender)[1])
-        patranymic = random.choice(Parser.get_data(gender=gender)[2])
+        patranymic = random.choice(Parser.get_data()[4])
         if gender == 'male':
             patranymic = patranymic + 'ич'
+            surname = random.choice(Parser.get_data()[2])
+            firstname = random.choice(Parser.get_data()[0])
         else:
             patranymic = patranymic + 'на'
+            surname = random.choice(Parser.get_data()[3])
+            firstname = random.choice(Parser.get_data()[1])
         date_birth = random_date
         username = DataAuth().username(surname)
         password = DataAuth().password(firstname)
