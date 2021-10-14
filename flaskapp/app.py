@@ -29,11 +29,19 @@ def settings():
             pass
         date_from = request.form['date_from']
         date_to = request.form['date_to']
+        # check date
+        if date_from or date_to:
+            d_f = time.mktime(time.strptime(date_from, '%Y-%m-%d'))
+            d_t = time.mktime(time.strptime(date_to, '%Y-%m-%d'))
+            if d_f > d_t:
+                r.start_date = date_to
+                r.stop_date = date_from
+            else:
+                r.start_date = date_from
+                r.stop_date = date_to
         gender = request.form['gender']
         number = int(request.form['number'])
         csv = request.form['csv']
-        r.start_date = date_from
-        r.stop_date = date_to
         r.gender = gender
         if csv == 'true':
             r.generate_csv_users(number=number)
