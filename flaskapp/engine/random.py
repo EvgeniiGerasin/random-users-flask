@@ -13,6 +13,7 @@ class RandomUserData():
         start_date: str = None,
         stop_date: str = None,
         gender: str = None,
+        number: str = None,
     ) -> None:
         """Methods for radom data
 
@@ -23,6 +24,7 @@ class RandomUserData():
         self.start_date = start_date
         self.stop_date = stop_date
         self.gender = gender
+        self.number = number
 
     def full_random_user(self) -> dir:
         """The method returns random data of a male/female's
@@ -132,3 +134,48 @@ class RandomUserData():
                         'password': data_one_user['password'],
                     }
                 )
+
+    def get_user(self):
+
+        data_for_create = Parser.get_data()
+
+        output_data = []
+
+        if self.number and self.number != '':
+            number = self.number
+        else:
+            number = 1
+        for _ in range(0, number):
+            patranymic = random.choice(Parser.get_data()[4])
+            random_date = self._formation_date(
+                self.start_date,
+                self.stop_date
+            )
+            # service gender
+            gender = self.gender
+            if gender == 'random' or gender == '' or gender == None:
+                gender = random.choice(['male', 'female'])
+            if gender == 'male':
+                patranymic = patranymic + 'ич'
+                surname = random.choice(data_for_create[2])
+                firstname = random.choice(data_for_create[0])
+            elif gender == 'female':
+                patranymic = patranymic + 'на'
+                surname = random.choice(data_for_create[3])
+                firstname = random.choice(data_for_create[1])
+            date_birth = random_date
+            username = DataAuth().username(surname)
+            password = DataAuth().password(firstname)
+
+            output_data.append(
+                {
+                    'gender': gender,
+                    'surname': surname,
+                    'firstname': firstname,
+                    'patranymic': patranymic,
+                    'date_birth': date_birth,
+                    'username': username,
+                    'password': password
+                }
+            )
+        return output_data
