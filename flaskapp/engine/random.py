@@ -121,8 +121,9 @@ class RandomUserData():
             ]
             writer = csv.DictWriter(f, fieldnames=fields_names)
             writer.writeheader()
-            for _ in range(0, number):
-                data_one_user = self.castom_random_user()
+            
+            data_users = self.get_user()
+            for data_one_user in data_users:
                 writer.writerow(
                     {
                         'gender': data_one_user['gender'],
@@ -146,7 +147,7 @@ class RandomUserData():
         else:
             number = 1
         for _ in range(0, number):
-            patranymic = random.choice(Parser.get_data()[4])
+            patranymic = random.choice(data_for_create[4])
             random_date = self._formation_date(
                 self.start_date,
                 self.stop_date
