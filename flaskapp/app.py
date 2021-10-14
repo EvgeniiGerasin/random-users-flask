@@ -134,7 +134,7 @@ def api_random():
         }
         return jsonify(resp)
     # check gender
-    if gender == 'male' or gender == 'female' or gender == 'random':
+    if gender == 'male' or gender == 'female' or gender == 'random' or gender == None or gender == '':
         r.gender = gender
     else:
         resp = resp = {
