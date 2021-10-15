@@ -89,14 +89,5 @@
   </div>
 
 </div>
-<script>
-  function myFunction(id) {
-    a = document
-      .querySelector(id)
-      .textContent
-      navigator
-      .clipboard
-      .writeText(a)
-  }
-</script>
+<script src="{{url_for('static', filename='button_copy.js')}}"></script>
 {% endblock content%}
